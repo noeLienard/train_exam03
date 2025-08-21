@@ -1,7 +1,20 @@
-#include "stdio.h"
-#include "stdlib.h"
-#include "unistd.h"
-#include "string.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   filter.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nlienard <nlienard@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/21 13:03:19 by nlienard          #+#    #+#             */
+/*   Updated: 2025/08/21 13:03:20 by nlienard         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <fcntl.h>
 
 #ifndef BUFFER_SIZE
 #define BUFFER_SIZE 5

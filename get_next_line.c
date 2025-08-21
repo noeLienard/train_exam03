@@ -1,8 +1,20 @@
-#include "stdio.h"
-#include "stdlib.h"
-#include "unistd.h"
-#include "string.h"
-#include <fcntl.h> 
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nlienard <nlienard@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/21 13:03:22 by nlienard          #+#    #+#             */
+/*   Updated: 2025/08/21 15:10:26 by nlienard         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <fcntl.h>
 
 #ifndef BUFFER_SIZE
 #define BUFFER_SIZE 5
@@ -157,20 +169,20 @@ char *get_next_line(int fd)
     return (return_line(buf));
 }
 
-int	main(void)
-{
-	int fd;
-	char *line;
+// int	main(void)
+// {
+// 	int fd;
+// 	char *line;
 
-	fd = open("text.txt", O_RDONLY);
-	if (fd < 0)
-		return (1);
-	line = get_next_line(fd);
-	while (line)
-	{
-		printf("%s", line);
-		line = get_next_line(fd);
-	}
-	close(fd);
-	return (0);
-}
+// 	fd = open("sudoku.txt", O_RDONLY);
+// 	if (fd < 0)
+// 		return (1);
+// 	line = get_next_line(fd);
+// 	while (line)
+// 	{
+// 		printf("%s", line);
+// 		line = get_next_line(fd);
+// 	}
+// 	close(fd);
+// 	return (0);
+// }
