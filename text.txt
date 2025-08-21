@@ -1,3 +1,56 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void find_subsets(int *set, int size, int target)
+{
+    int total = 1;
+    for (int i = 0; i < size; i++)
+        total *= 2; // équivalent à 2^size
+
+    for (int n = 0; n < total; n++)
+    {
+        int sum = 0;
+        int subset[64]; // assez grand
+        int subsize = 0;
+
+        int temp = n;
+        for (int i = 0; i < size; i++)
+        {
+            if (temp % 2 == 1) // si le bit est "1"
+            {
+                subset[subsize++] = set[i];
+                sum += set[i];
+            }
+            temp /= 2; // décale à droite sans <<
+        }
+
+        if (sum == target)
+        {
+            for (int j = 0; j < subsize; j++)
+                printf("%d ", subset[j]);
+            printf("\n");
+        }
+    }
+}
+
+int main(int argc, char **argv)
+{
+    if (argc < 3) return 1;
+
+    int size = argc - 2;
+    int target = atoi(argv[1]);
+    int *set = malloc(sizeof(int) * size);
+
+    for (int i = 0; i < size; i++)
+        set[i] = atoi(argv[i + 2]);
+
+    find_subsets(set, size, target);
+
+    free(set);
+    return 0;
+}
+
+
 adipiscing elit, sed do eiusmod tem hhy
 por incididunt ut labore et dolore magna 
 aliqua. Ut enim ad minim veniam, quis nostrud exe
